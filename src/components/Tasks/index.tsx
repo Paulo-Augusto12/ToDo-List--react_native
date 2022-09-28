@@ -1,4 +1,3 @@
-
 import { useState } from 'react'
 import { Text, TouchableOpacity, View, Image } from 'react-native'
 
@@ -14,13 +13,13 @@ export function Tasks({description}:TaskProps){
     const [taskStatus , setTaskStatus] = useState(false)
 
 
-    function handleAddTask(){
+    function handleChangeTaskStatus(){
         
         setTaskStatus(!taskStatus)
         console.log('Task status : ' , taskStatus)
     }
 
-    function handleResetTask(){
+    function taskIcon(){
         if (taskStatus === true){
             return(
                 <Image source={require('../../../assets/completed.png')} />
@@ -33,31 +32,44 @@ export function Tasks({description}:TaskProps){
     }
     
     return(
-
+  <>
         <View style={styles.tasksContainer}>
 
-            <View style={styles.elements}>
+
+            <View style={styles.checkMark}>
         
-                <TouchableOpacity onPress={handleAddTask}>
+                <TouchableOpacity onPress={handleChangeTaskStatus}>
                     
-                    {handleResetTask()}
+                    {taskIcon()}
                     
                 </TouchableOpacity>
+           
+            </View>
+                
+            <View style={styles.tasks}>
                 
                 <Text style={ taskStatus === true ? styles.taskCompleted : styles.tasks}>
                     {description}
                 </Text>
+            
+            </View>
+                
+            
+            <View>
+                            
+            <TouchableOpacity style={styles.trash}>
+                
+                <Image source={require('../../../assets/trash.png')} />
+
+            </TouchableOpacity>
 
             </View>
 
-                <View style={styles.trash}>
-                        <TouchableOpacity >
-                            <Text>
-                                <Image source={require('../../../assets/trash.png')} />
-                            </Text>
-                        </TouchableOpacity>
-                </View>
-
         </View>
+
+            
+
+</>
+  
     )
 }

@@ -13,7 +13,6 @@ export const styles = StyleSheet.create({
 
     textFields:{
         
-        position:'relative',
         display:'flex',
         flexDirection:'row',
         alignItems:'center',
@@ -38,6 +37,45 @@ export const styles = StyleSheet.create({
         borderRadius:6,
         padding:17,
         marginLeft:2,
+    },
+
+    counters:{  
+        display:'flex',
+        flexDirection:'row',
+        height:19,
+        borderRadius:0,
+        gap:10,
+        marginBottom:20,
+        marginTop:18
+      
+    },
+
+    counterIndex:{
+        
+        color:'#D9D9D9',
+        backgroundColor:'#333333',
+        fontSize:12,
+        fontWeight:'700',
+        textAlign:'center',
+        width:25,
+        height:19,
+        borderRadius:999,
+        marginLeft:7,
+    },
+
+
+    created:{
+        marginLeft:45,
+        color:'#4EA8DE',
+        fontSize:14,
+        fontWeight:'700',
+    },
+
+    done:{
+        marginLeft:125,
+        color:'#4EA8DE',
+        fontSize:14,
+        fontWeight:'700'
     },
 
 })

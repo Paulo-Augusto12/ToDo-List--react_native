@@ -4,7 +4,6 @@ import { Header } from './src/components/header'
 
 import { TaskInput } from './src/components/TaskInput/Index'
 import { Tasks } from './src/components/Tasks'
-import { ListCounter } from './src/components/Tasks/counter'
 import { Home } from './src/components/Home'
 
 import { styles } from './style'
@@ -32,20 +31,14 @@ export default function App() {
     
     <View style={styles.body}>
   
-      <TaskInput newTasks={newTasks}/>
+      <TaskInput />
 
-          <View style={styles.styledTasks}>
-
-            <ListCounter />
-            
-          </View>
+          
           
     </View>
          
           <Home />
-
-            
-          
+  
     </>
   )
 }

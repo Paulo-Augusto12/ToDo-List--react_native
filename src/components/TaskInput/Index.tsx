@@ -10,13 +10,34 @@ import { Plus } from "../Logo/PlusButton";
 
 
 
-interface HomeProps {
-    newTasks:()=> void
-}
-
-export function TaskInput ({newTasks}:HomeProps) {
+export function TaskInput () {
 
     const [taskValue, setTaskValue]=useState('')
+    const [taskCounter, setTaskCounter] = useState(0)
+
+    function incrementTaskCounter(){
+        console.log('task adicionada na categoria criadas' , taskCounter )
+        setTaskCounter(taskCounter + 1)
+    }
+
+    const CreatedCounter = () =>{
+
+
+        return(
+            <View >
+            <Text style={styles.counterIndex}>{taskCounter}</Text>
+        </View>
+        )
+        
+    }
+
+    const DoneCounter = () => {
+        return(
+            <View >
+            <Text style={styles.counterIndex}>{2}</Text>
+        </View>
+        )
+    }
     
     return(
     <>
@@ -29,7 +50,7 @@ export function TaskInput ({newTasks}:HomeProps) {
                 placeholderTextColor={'#808080'}
             />
                 
-                <TouchableOpacity onPress={newTasks}>
+                <TouchableOpacity onPress={incrementTaskCounter}>
                     
                     <Text style={styles.button}> 
                     <Image 
@@ -40,6 +61,22 @@ export function TaskInput ({newTasks}:HomeProps) {
                 </TouchableOpacity>
        
         </View>
+        
+        <View style={styles.counters}>
+            <Text style={styles.created}>
+                Criadas 
+            <View style={styles.counters}>
+                <CreatedCounter />
+            </View>
+            </Text>
+            <Text style={styles.done}>
+                Concluidas 
+                <View style={styles.counters}>
+                <DoneCounter />
+                </View>
+            </Text>
+   
+    </View>
         
     </>
     )
